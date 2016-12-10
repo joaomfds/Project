@@ -1,0 +1,7 @@
+#Sat Dec 10 10:37:10 WAT 2016
+base.0=/home/joao/code/Project/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_36daebbbb1a15f24ac8a6540bca49cab635a249f
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/joao/code/Project/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1644529d42d247f9905f9e8250fc9eea140b0632/classes.dex
+base.1=/home/joao/code/Project/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1644529d42d247f9905f9e8250fc9eea140b0632
+file.0=/home/joao/code/Project/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_36daebbbb1a15f24ac8a6540bca49cab635a249f/classes.dex

@@ -1,0 +1,7 @@
+#Sat Dec 10 11:43:46 WAT 2016
+base.0=/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f0c31a68c4da3f7098b099ba8fa523b2d3c1f0fe
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e0f04d884c16961bd7f12366653341825ceb6b5a/classes.dex
+base.1=/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e0f04d884c16961bd7f12366653341825ceb6b5a
+file.0=/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f0c31a68c4da3f7098b099ba8fa523b2d3c1f0fe/classes.dex
