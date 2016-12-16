@@ -11,35 +11,56 @@
 
 <body>
   <h1>Testing</h1>
+  <button onclick="show_image('http://frozen-sierra-62859.herokuapp.com/parse/files/instagram5208/4a6783037e5649c91a3e45063fb9e99c_image.png', 276, 110,'Google Logo');">Add Google Logo</button>
 
 </body>
 
-    <script type="text/javascript">
-    Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
-    Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
-    </script>
+<script type="text/javascript">
+Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
+Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
+</script>
 
 
 <script type="text/javascript">
 var username = sessionStorage.getItem('username', username);
 var password = sessionStorage.getItem('password', password);
 document.title = username;
-alert (username);
-alert (password);
+//alert (username);
+//alert (password);
 
 var Image = Parse.Object.extend("Image");
 var query = new Parse.Query(Image);
-query.get("4D2Eebki7Q", {
-  success: function(image) {
-    // The object was retrieved successfully.
+
+query.equalTo("username", username);
+query.descending("createdAt");
+
+query.find({
+  success: function(results) {
+    alert("Successfully retrieved " + results.length + " images.");
+    // Do something with the returned Parse.Object values
+    for (var i = 0; i < results.length; i++) {
+      var object = results[i];
+      var myImage = object.id;
+      var url = (object.get("image").url);
+      alert(url);
+      //alert(object.id + ' - ' + object.get(myImage));
+    }
   },
-  error: function(object, error) {
-    // The object was not retrieved successfully.
-    // error is a Parse.Error with an error code and message.
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
   }
 });
 
+function show_image(src, width, height, alt) {
+  var img = document.createElement("img");
+  img.src = src;
+  img.width = width;
+  img.height = height;
+  img.alt = alt;
 
+  // This next line will just add it to the <body> tag
+  document.body.appendChild(img);
+}
 
 </script>
 
