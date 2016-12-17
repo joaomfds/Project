@@ -21,6 +21,33 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_1f8f37b3b97c96d4656b5466188bba603e8f723b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_9d94a801b9ecd9250165531a97e02e703d78e814/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_4aabfd794120a5d68fd084f76cb2db65e5c75fb2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/joao/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
         jumboMode="true"
         optimize="true"
@@ -34,17 +61,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="6da8c0bcd39c6e09742bbb57c60b5ebe738ea612">
+        sha1="80ad44ac970ae845cc06373240c974017f2a99fe">
         <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e0f04d884c16961bd7f12366653341825ceb6b5a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_1f8f37b3b97c96d4656b5466188bba603e8f723b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -70,26 +88,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="d2818d59ff0b37345cca180e8051b5567bb9c959">
+        sha1="d2220f4bfabdc1d85f4b388b52f1c2017775c1cd">
         <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f0c31a68c4da3f7098b099ba8fa523b2d3c1f0fe/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_9d94a801b9ecd9250165531a97e02e703d78e814/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_4aabfd794120a5d68fd084f76cb2db65e5c75fb2/classes.dex" />
     </item>
 
 </items>

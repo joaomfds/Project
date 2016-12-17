@@ -1,4 +1,5 @@
 #PROJECT
+##Alternative 1
 ##Start Web Development vs Android Development Comparison
 
 This project will focus on the first steps of development on a local machine. Given the economic constrains of most of the world population and my own beliefs I will focus on Cost Free Solutions.
@@ -10,4 +11,11 @@ what is Android?
 
 2. Android Cellphones per price segment (memory, CPU, storage capacity)
 
-3.
+#Alternative 2
+##Creating Android Studio Apps and HTML Apps - comparison
+###Instagram App
+1. Will need a server where to store the photos that will be shared between users - Parse Server on AWS
+Parse Server is completely stored on our own server, opensource
+AWS is one of the most popular cloud server in the world. We will use the free tier 
+As an alternative, I will use Heroku app?
+

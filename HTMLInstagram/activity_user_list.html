@@ -12,8 +12,8 @@
 
 <body>
   <h1>Testing</h1>
+  <p id="demo"></p>
 
-</body>
 
 <script type="text/javascript">
 Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
@@ -22,28 +22,44 @@ Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
 
 
 <script type="text/javascript">
-var username = sessionStorage.getItem('username', username);
+var user = sessionStorage.getItem('username', user);
 var password = sessionStorage.getItem('password', password);
-document.title = username;
-//alert (username);
-//alert (password);
+document.title = user;
 
-
+var myObjectIds = Array();
+var userArray= Array();
 
 // Assume Parse.Object myPost was previously created.
-var GameScore = Parse.Object.extend("GameScore");
-var query = new Parse.Query(GameScore);
-query.equalTo("playerName", "Sean Plott");
-query.count({
-  success: function(count) {
-    // The count request succeeded. Show the count
-    alert("Sean has played " + count + " games");
+var User = Parse.Object.extend("User");
+var query = new Parse.Query(User);
+query.notEqualTo("user", "joao");
+query.ascending("username");
+query.find({
+  success: function(results) {
+    //alert("Successfully retrieved " + results.length + " users.");
+    // Do something with the returned Parse.Object values
+    for (var i = 0; i < results.length; i++) {
+      var object = results[i];
+      userArray[i] = (object.get("username"));
+      myObjectIds[i] = object.id;
+      //alert(userArray[i]); //working
+    }
+    text = "<p>";
+    for (i = 0; i < myObjectIds.length; i++) {
+        text += "<p>" + userArray[i] + "</p>";
+    }
+    text += "</p>";
+    document.getElementById("demo").innerHTML = text;
   },
   error: function(error) {
-    // The request failed
+    alert("Error: " + error.code + " " + error.message);
   }
 });
 
+
+
 </script>
+
+</body>
 
 </html>

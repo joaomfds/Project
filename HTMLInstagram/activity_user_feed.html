@@ -30,6 +30,7 @@ document.title = username;
 
 var Image = Parse.Object.extend("Image");
 var query = new Parse.Query(Image);
+var myObjectIds = Array();
 
 query.equalTo("username", username);
 query.descending("createdAt");
@@ -40,16 +41,35 @@ query.find({
     // Do something with the returned Parse.Object values
     for (var i = 0; i < results.length; i++) {
       var object = results[i];
-      var myImage = object.id;
+      // var myImage = object.id;
       var url = (object.get("image").url);
-      alert(url);
-      //alert(object.id + ' - ' + object.get(myImage));
+      var createdAt = (object.get("createdAt"));
+      var image = object.get("image");
+      myObjectIds[i] = object.id;
+      //alert(url + object.id + createdAt + username + image);
+      //alert(object.id + ' - ' + createdAt + ' - ' + object.get(image));
+      //alert(myObjectIds); //working
     }
   },
   error: function(error) {
     alert("Error: " + error.code + " " + error.message);
   }
 });
+
+
+// for (var i = 0; i < myObjectIds.length; i++) {
+//   query.get(myObjectIds[i], {
+//     success: function(object) {
+//       alert(myObjectIds[i]);
+//       // object is an instance of Parse.Object.
+//     },
+//
+//     error: function(object, error) {
+//       // error is an instance of Parse.Error.
+//     }
+//   });
+// }
+
 
 function show_image(src, width, height, alt) {
   var img = document.createElement("img");
