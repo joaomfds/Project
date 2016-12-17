@@ -15,7 +15,7 @@
 
   <div id="main">
     <img src="/android/gallery_instagram-logo.png" alt="Instagram Logo" height="200px" width="auto">
-    <form class="login-form" method="post" onsubmit="tryLogin(this); event.preventDefault();">
+    <form class="login-form" method="post"  onsubmit="tryLogin(this); event.preventDefault();">
       <h3 class="form-title">Login to your account</h3>
       <div class="alert alert-danger display-hide">
         <button class="close" data-close="alert"></button>
@@ -39,55 +39,56 @@
         </div>
       </div>
       <div class="form-actions">
-        <input type="submit" value="Submit"><br>
-        <input type="submit" formaction="demo_admin.asp" value="Submit as admin">
-
+        <input type="submit" name="action" value="Submit or Create new account"><br>
       </div>
     </form>
+  </div>
 
-    <script type="text/javascript">
-    Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
-    Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
-    </script>
+  <script type="text/javascript">
+  Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
+  Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
+  </script>
 
-    <script type="text/javascript">
-    // var TestObject = Parse.Object.extend("TestObject");
-    // var testObject = new TestObject();
-    //   testObject.save({foo: "bar"}, {
-    //   success: function(object) {
-    //     $(".success").show();
-    //   },
-    //   error: function(model, error) {
-    //     $(".error").show();
-    //   }
-    // });
+  <script type="text/javascript">
 
-    function tryLogin(form) {
+  function signUp(form) {
+    var username = form.username.value;
+    sessionStorage.setItem('username', username);
+    var password = form.password.value;
+    sessionStorage.setItem('password', password);
 
-      var username = form.username.value;
-      sessionStorage.setItem('username', username);
-      var password = form.password.value;
-      sessionStorage.setItem('password', password);
+    var user = new Parse.User();
 
+    user.set("username", username);    // in my app, email==username
+    user.set("password", password);
 
-      console.log("Username: " + username + " Password: " + password);
-      Parse.User.logIn(username, password, {
+    return user.signUp(null, {
         success: function(user) {
-          window.location.href="activity_user_feed.html";
-          //self.undelegateEvents();
-          //delete self;
-          alert("Sucess");
-          return true;
-        },
-        error: function(user, error) {
-          window.location.href="index.html";
-          alert("Error: " + error.code + " " + error.message + username + password);
-          return false;
+        form.submit();
+        alert("Account Successfully Created!");
+        }, error: function(user,error){
+            alert("Account Not Created!");
         }
-      });
+    });
+  }
 
-    }
-    </script>
-  </body>
+  function logIn(form) {
+    var username = form.username.value;
+    sessionStorage.setItem('username', username);
+    var password = form.password.value;
+    sessionStorage.setItem('password', password);
+    return Parse.User.logIn(username, password);
+  }
 
-  </html>
+  function tryLogin(form) {
+    return logIn(form).then(function(user) {
+      window.location.href="activity_user_feed.html";
+    }, function(user, error) {
+      return signUp(form);
+    });
+  }
+
+  </script>
+</body>
+
+</html>
