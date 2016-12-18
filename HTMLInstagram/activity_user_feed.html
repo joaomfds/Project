@@ -94,7 +94,6 @@ document.title = username;
 
 var Image = Parse.Object.extend("Image");
 var query = new Parse.Query(Image);
-var myObjectIds = Array();
 
 query.equalTo("username", username);
 query.descending("createdAt");
@@ -109,11 +108,15 @@ query.find({
       //var url = (object.get("image").url);
       var createdAt = (object.get("createdAt"));
       var image = object.get("image");
-      myObjectIds[i] = object.id;
-      //alert(url + object.id + createdAt + username + image);
+      var imageUrl = image.url();  // now you have the file URL
+      //alert(imageUrl + object.id + createdAt + username + image);
       //alert(object.id + ' - ' + createdAt + ' - ' + object.get(image));
-      //alert(myObjectIds); //working
+      // alert(imageURLArray[i]); //working
+
+      document.write("<li><img src='" + imageUrl +"'/></li>");
+
     }
+
   },
   error: function(error) {
     alert("Error: " + error.code + " " + error.message);
@@ -121,18 +124,7 @@ query.find({
 });
 
 
-// for (var i = 0; i < myObjectIds.length; i++) {
-//   query.get(myObjectIds[i], {
-//     success: function(object) {
-//       alert(myObjectIds[i]);
-//       // object is an instance of Parse.Object.
-//     },
-//
-//     error: function(object, error) {
-//       // error is an instance of Parse.Error.
-//     }
-//   });
-// }
+
 
 
 function show_image(src, width, height, alt) {
