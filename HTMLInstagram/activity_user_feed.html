@@ -12,14 +12,78 @@
 <body>
   <h1>Testing</h1>
   <button onclick="show_image('http://frozen-sierra-62859.herokuapp.com/parse/files/instagram5208/4a6783037e5649c91a3e45063fb9e99c_image.png', 276, 110,'Google Logo');">Add Google Logo</button>
-  <input type=button onClick="location.href='activity_user_list.html'" value='click here'>
+  <input type=button onClick="location.href='activity_user_list.html'" value='See User List'>
 </body>
 
 <script type="text/javascript">
+
+//Init Parse SDK
 Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
 Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
 </script>
 
+<form id='fileupload' name='fileupload' enctype='multipart/form-data' method='post'>
+  <fieldset>
+    <input type='file' name='fileselect' id='fileselect'></input>
+    <input id='uploadbutton' type='button' value='Upload to Parse'/></br></br>
+    File URL <input type='text' id='resultURL' size='155'></input>
+  </fieldset>
+</form>
+
+<script type='text/javascript'>
+
+$(function() {
+  var file;
+
+  // Set an event listener on the Choose File field.
+  $('#fileselect').bind('change', function(e) {
+    var files = e.target.files || e.dataTransfer.files;
+    // Our file var now holds the selected file
+    file = files[0];
+  });
+
+  // This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
+  $('#uploadbutton').click(function() {
+    var serverUrl = 'https://frozen-sierra-62859.herokuapp.com/parse/files/' + file.name;
+
+    $.ajax({
+      type: 'POST',
+      beforeSend: function(request) {
+        request.setRequestHeader('X-Parse-Application-Id', 'instagram5208');
+        request.setRequestHeader('X-Parse-REST-API-Key', 'instagram5208oijopiajaoijwogeij934oin83hnvASC');
+        request.setRequestHeader('Content-Type', file.type);
+      },
+      url: serverUrl,
+      data: file,
+      processData: false,
+      contentType: false,
+      success: function(data) {
+        if (window.confirm('File available at: ' + data.url)){
+          window.open(data.url);
+          var Image = Parse.Object.extend("Image");
+          var object = new Image();
+
+          object.set('username', username);
+          object.set('url', data.url)
+          object.set({image: {"name": data.name,"url": data.url,"__type": "File"}});
+          object.save();
+          console.log('file saved!');
+
+
+        }else{
+          document.getElementById('resultURL').value = data.url;
+        }
+        document.getElementById('resultURL').value = data.url;
+      },
+      error: function(data) {
+        var obj = jQuery.parseJSON(data);
+        alert(obj.error);
+        window.alert('ERROR');
+      }
+    });
+  });
+});
+</script>
 
 <script type="text/javascript">
 var username = sessionStorage.getItem('username', username);
@@ -37,12 +101,12 @@ query.descending("createdAt");
 
 query.find({
   success: function(results) {
-    alert("Successfully retrieved " + results.length + " images.");
+    //alert("Successfully retrieved " + results.length + " images.");
     // Do something with the returned Parse.Object values
     for (var i = 0; i < results.length; i++) {
       var object = results[i];
       // var myImage = object.id;
-      var url = (object.get("image").url);
+      //var url = (object.get("image").url);
       var createdAt = (object.get("createdAt"));
       var image = object.get("image");
       myObjectIds[i] = object.id;
