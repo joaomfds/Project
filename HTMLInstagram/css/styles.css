@@ -41,3 +41,21 @@ form {
     color: green;
     line-height: 13px;
 }
+
+#clickable {
+    /*background-color: rgb(92, 227, 93);*/
+    width: 200px;
+    height: 25px;
+    display: block;
+    align-items: center;
+    align-self: center;
+    border:1px solid black;
+    margin: 0 auto;
+
+    }
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
