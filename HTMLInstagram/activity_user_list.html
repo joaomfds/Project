@@ -19,45 +19,7 @@
 
   <div>
     <script type="text/javascript">
-
-    initializeParse();
-
-    var user = sessionStorage.getItem('username', user);
-    var password = sessionStorage.getItem('password', password);
-    document.title = user;
-
-    var myObjectIds = Array();
-    var userArray= Array();
-
-    // Assume Parse.Object myPost was previously created.
-    var User = Parse.Object.extend("User");
-    var query = new Parse.Query(User);
-    query.notEqualTo("user", "joao");
-    query.ascending("username");
-    query.find({
-      success: function(results) {
-        //alert("Successfully retrieved " + results.length + " users.");
-        // Do something with the returned Parse.Object values
-        for (var i = 0; i < results.length; i++) {
-          var object = results[i];
-          userArray[i] = (object.get("username"));
-          myObjectIds[i] = object.id;
-          //alert(userArray[i]); //working
-        }
-        text = "<div>";
-        for (i = 0; i < myObjectIds.length; i++) {
-          text += "<button type=button id=clickable>" + userArray[i] + "</button>";
-        }
-        text += "</div>";
-        document.getElementById("demo").innerHTML = text;
-      },
-      error: function(error) {
-        alert("Error: " + error.code + " " + error.message);
-      }
-    });
-
-
-
+    showUserList();
     </script>
   </div>
 </body>
