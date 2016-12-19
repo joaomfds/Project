@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
@@ -14,13 +15,6 @@
   <button onclick="show_image('http://frozen-sierra-62859.herokuapp.com/parse/files/instagram5208/4a6783037e5649c91a3e45063fb9e99c_image.png', 276, 110,'Google Logo');">Add Google Logo</button>
   <input type=button onClick="location.href='activity_user_list.html'" value='See User List'>
 </body>
-
-<script type="text/javascript">
-
-//Init Parse SDK
-Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
-Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
-</script>
 
 <form id='fileupload' name='fileupload' enctype='multipart/form-data' method='post'>
   <fieldset>
@@ -31,6 +25,7 @@ Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
 </form>
 
 <script type='text/javascript'>
+initializeParse();
 
 $(function() {
   var file;

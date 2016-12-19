@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
@@ -18,12 +19,9 @@
 
   <div>
     <script type="text/javascript">
-    Parse.initialize("instagram5208", "instagram5208oijopiajaoijwogeij934oin83hnvASC");
-    Parse.serverURL = 'https://frozen-sierra-62859.herokuapp.com/parse/'
-    </script>
 
+    initializeParse();
 
-    <script type="text/javascript">
     var user = sessionStorage.getItem('username', user);
     var password = sessionStorage.getItem('password', password);
     document.title = user;
