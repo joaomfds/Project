@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="80ad44ac970ae845cc06373240c974017f2a99fe">
+        sha1="a441dca4f4512fb0498603f38061562b3546b681">
         <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e0f04d884c16961bd7f12366653341825ceb6b5a/classes.dex" />
     </item>
     <item
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="d2220f4bfabdc1d85f4b388b52f1c2017775c1cd">
+        sha1="9bc40ac13104b33f8bb4d22a2da1dab19acd4e6f">
         <dex dex="/home/joao/code/Project/Instagram/ParseStarterProject/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f0c31a68c4da3f7098b099ba8fa523b2d3c1f0fe/classes.dex" />
     </item>
 

@@ -5,29 +5,29 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="827581373269"
+    timestamp="39382816830127"
     token="-5866594427308229134"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="1125" />
+        duration="4084" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="382" />
+        duration="510" />
     <task
         name="verifier"
-        duration="7" />
+        duration="52" />
 
     <artifact
         location="/home/joao/code/Project/Instagram/ParseStarterProject/build/outputs/apk/ParseStarterProject-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="827581373269"
+        timestamp="39382816830127"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/joao/code/Project/Instagram/ParseStarterProject/build/outputs/apk/ParseStarterProject-debug.apk"
