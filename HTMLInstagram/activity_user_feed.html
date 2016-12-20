@@ -25,8 +25,11 @@
 </form>
 
 <script type='text/javascript'>
+
+var username = sessionStorage.getItem('username', username);
+var password = sessionStorage.getItem('password', password);
 uploadImages();
-showImages();
+showImages(username);
 
 // function show_image(src, width, height, alt) {
 //   var img = document.createElement("img");
@@ -37,7 +40,7 @@ showImages();
 //
 //   // This next line will just add it to the <body> tag
 //   document.body.appendChild(img);
-}
+// }
 </script>
 
 </html>

@@ -100,10 +100,8 @@ function uploadImages() {
   });
 }
 
-function showImages(){
+function showImages(username){
 
-  var username = sessionStorage.getItem('username', username);
-  var password = sessionStorage.getItem('password', password);
   document.title = username;
   //alert (username);
   //alert (password);
@@ -143,9 +141,9 @@ function showImages(){
 function showUserList(){
   initializeParse();
 
-  var user = sessionStorage.getItem('username', user);
-  var password = sessionStorage.getItem('password', password);
-  document.title = user;
+  // var user = sessionStorage.getItem('username', user);
+  // var password = sessionStorage.getItem('password', password);
+  //document.title = user;
 
   var myObjectIds = Array();
   var userArray= Array();
@@ -153,7 +151,7 @@ function showUserList(){
   // Assume Parse.Object myPost was previously created.
   var User = Parse.Object.extend("User");
   var query = new Parse.Query(User);
-  query.notEqualTo("user", "joao");
+//  query.notEqualTo("user", "joao");
   query.ascending("username");
   query.find({
     success: function(results) {
@@ -167,7 +165,8 @@ function showUserList(){
       }
       text = "<div>";
       for (i = 0; i < myObjectIds.length; i++) {
-        text += "<button type=button id=clickable>" + userArray[i] + "</button>";
+        var userImage = userArray[i];
+        text += "<button type=button id=clickable onclick=showImages('"+ userImage + "');   >" + userArray[i] + "</button>";
       }
       text += "</div>";
       document.getElementById("demo").innerHTML = text;
