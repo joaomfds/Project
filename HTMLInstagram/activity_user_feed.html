@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="description" content="My Parse App">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="css/reset.css">
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
   <link rel="stylesheet" href="css/styles.css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
@@ -11,36 +11,37 @@
 </head>
 
 <body>
-  <h1>Testing</h1>
-  <!-- <button onclick="show_image('http://frozen-sierra-62859.herokuapp.com/parse/files/instagram5208/4a6783037e5649c91a3e45063fb9e99c_image.png', 276, 110,'Google Logo');">Add Google Logo</button> -->
-  <input type=button onClick="location.href='activity_user_list.html'" value='See User List'>
+  <div>
+    <h1>Testing</h1>
+    <!-- <button onclick="show_image('http://frozen-sierra-62859.herokuapp.com/parse/files/instagram5208/4a6783037e5649c91a3e45063fb9e99c_image.png', 276, 110,'Google Logo');">Add Google Logo</button> -->
+    <input type=button onClick="location.href='activity_user_list.html'" value='See User List'>
+    <form id='fileupload' name='fileupload' enctype='multipart/form-data' method='post'>
+      <fieldset>
+        <input type='file' name='fileselect' id='fileselect'></input>
+        <input id='uploadbutton' type='button' value='Upload to Parse'/></br></br>
+        File URL <input type='text' id='resultURL' size='155'></input>
+      </fieldset>
+    </form>
+  </div>
+  <div id="images"></div>
+
+  <script type='text/javascript'>
+
+  var username = sessionStorage.getItem('username', username);
+  var password = sessionStorage.getItem('password', password);
+  uploadImages();
+  showImages(username);
+
+  // function show_image(src, width, height, alt) {
+  //   var img = document.createElement("img");
+  //   img.src = src;
+  //   img.width = width;
+  //   img.height = height;
+  //   img.alt = alt;
+  //
+  //   // This next line will just add it to the <body> tag
+  //   document.body.appendChild(img);
+  // }
+  </script>
 </body>
-
-<form id='fileupload' name='fileupload' enctype='multipart/form-data' method='post'>
-  <fieldset>
-    <input type='file' name='fileselect' id='fileselect'></input>
-    <input id='uploadbutton' type='button' value='Upload to Parse'/></br></br>
-    File URL <input type='text' id='resultURL' size='155'></input>
-  </fieldset>
-</form>
-
-<script type='text/javascript'>
-
-var username = sessionStorage.getItem('username', username);
-var password = sessionStorage.getItem('password', password);
-uploadImages();
-showImages(username);
-
-// function show_image(src, width, height, alt) {
-//   var img = document.createElement("img");
-//   img.src = src;
-//   img.width = width;
-//   img.height = height;
-//   img.alt = alt;
-//
-//   // This next line will just add it to the <body> tag
-//   document.body.appendChild(img);
-// }
-</script>
-
 </html>

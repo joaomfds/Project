@@ -127,7 +127,7 @@ function showImages(username){
         //alert(object.id + ' - ' + createdAt + ' - ' + object.get(image));
         // alert(imageURLArray[i]); //working
 
-        document.write("<li><img src='" + imageUrl +"'/></li>");
+        document.getElementById('images').innerHTML =("<li><img src='" + imageUrl +"'/></li>");
 
       }
 
