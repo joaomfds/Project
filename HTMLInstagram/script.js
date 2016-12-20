@@ -11,7 +11,7 @@ function signUp(form) {
 
   var user = new Parse.User();
 
-  user.set("username", username);    // in my app, email==username
+  user.set("username", username);
   user.set("password", password);
 
   return user.signUp(null, {
@@ -84,11 +84,11 @@ function uploadImages() {
             object.set({image: {"name": data.name,"url": data.url,"__type": "File"}});
             object.save();
             console.log('file saved!');
-
+            window.location.reload();
           }else{
             document.getElementById('resultURL').value = data.url;
           }
-          document.getElementById('resultURL').value = data.url;
+          // document.getElementById('resultURL').value = data.url;
         },
         error: function(data) {
           var obj = jQuery.parseJSON(data);
@@ -103,34 +103,31 @@ function uploadImages() {
 function showImages(username){
 
   document.title = username;
-  //alert (username);
-  //alert (password);
 
   var Image = Parse.Object.extend("Image");
   var query = new Parse.Query(Image);
+  var imageArray = Array();
 
   query.equalTo("username", username);
   query.descending("createdAt");
 
   query.find({
     success: function(results) {
-      //alert("Successfully retrieved " + results.length + " images.");
       // Do something with the returned Parse.Object values
       for (var i = 0; i < results.length; i++) {
         var object = results[i];
-        // var myImage = object.id;
-        //var url = (object.get("image").url);
         var createdAt = (object.get("createdAt"));
         var image = object.get("image");
-        var imageUrl = image.url();  // now you have the file URL
-        //alert(imageUrl + object.id + createdAt + username + image);
-        //alert(object.id + ' - ' + createdAt + ' - ' + object.get(image));
-        // alert(imageURLArray[i]); //working
-
-        document.getElementById('images').innerHTML =("<li><img src='" + imageUrl +"'/></li>");
-
+        var imageUrl = image.url();
+        imageArray[i] = imageUrl;
       }
+      text = "<p>"
+      for (var i = 0; i < imageArray.length; i++) {
 
+        text += "<img src='" + imageArray[i] +"'/>"
+      }
+      text += "</p>"
+      document.getElementById('images').innerHTML =text;
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
@@ -141,27 +138,21 @@ function showImages(username){
 function showUserList(){
   initializeParse();
 
-  // var user = sessionStorage.getItem('username', user);
-  // var password = sessionStorage.getItem('password', password);
-  //document.title = user;
-
   var myObjectIds = Array();
   var userArray= Array();
 
   // Assume Parse.Object myPost was previously created.
   var User = Parse.Object.extend("User");
   var query = new Parse.Query(User);
-//  query.notEqualTo("user", "joao");
   query.ascending("username");
   query.find({
     success: function(results) {
-      //alert("Successfully retrieved " + results.length + " users.");
+
       // Do something with the returned Parse.Object values
       for (var i = 0; i < results.length; i++) {
         var object = results[i];
         userArray[i] = (object.get("username"));
         myObjectIds[i] = object.id;
-        //alert(userArray[i]); //working
       }
       text = "<div>";
       for (i = 0; i < myObjectIds.length; i++) {
